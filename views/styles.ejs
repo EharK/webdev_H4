@@ -1,9 +1,132 @@
 <style lang="scss">
-    body {
+    html {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+        color: #c7c7c7;
         background-color: #2c3e50;
         font-family: Avenir, Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
+    }
+
+    body {
+        background-color: #2c3e50;
+        margin: 0;
+        height: 100%;
+    }
+
+    #footer-container {
+        background-color: #141414;
+    }
+
+    #posts {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .singlepost {
+        border-radius: 30px;
+    }
+
+    .singlepost p {
+        padding: 0 10px 0 10px;
+    }
+
+    .post-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: rgb(196, 196, 196);
+        border-radius: 20px 20px 0 0;
+    }
+
+    .post-footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: rgb(196, 196, 196);
+        border-radius: 0 0 20px 20px;
+    }
+
+    .title {
+        padding-left: 20px;
+    }
+
+    a {
+        color: black;
+    }
+
+    ul {
+        list-style: none;
+        width: 30%;
+        padding: 0;
+    }
+
+    li {
+        background-color: antiquewhite;
+        margin: 20px 0 20px 0;
+        border-radius: 20px;
+    }
+
+    #nav {
+        z-index: 1000;
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 30px;
+        background-color: #141414;
+    }
+
+    #nav a {
+        font-weight: bold;
+        color: #517394; 
+    }
+
+    #nav a:hover {
+        color: #b47414;
+    }
+
+    .nav-container {
+        display: flex;
+        place-content: space-between;
+        align-items: center;
+        padding: 0;
+        width: 20%;
+        min-width: 400px;
+    }
+
+    .navbar-text p {
+        margin: 0;
+        text-align: end;
+        color: dimgray;
+    }
+
+    .navbar-text {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        text-align: start;
+    }
+
+    #footer-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        bottom: 0;
+        padding: 20px 40px 80px 40px;
+        text-align: start;
     }
 </style>
