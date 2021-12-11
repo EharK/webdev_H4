@@ -38,7 +38,7 @@ app.get('/posts', async (req, res) => {
 
 
 app.get('/contactus', async (req, res) => {
-        res.render('contactus');
+    res.render('contactus');
 });
 
 app.get('/singlepost/:id', async (req, res) => {
@@ -91,7 +91,7 @@ app.post('/posts', async (req, res) => {
         const post = req.body;
         console.log(post);
         const newpost = await pool.query(
-            "INSERT INTO posts(title, body, urllink) values ($1, $2, $3) RETURNING * ", 
+            "INSERT INTO posts(title, body, urllink) values ($1, $2, $3) RETURNING * ",
             [post.title, post.body, post.urllink]
         );
         res.redirect('posts');

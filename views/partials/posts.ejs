@@ -1,0 +1,17 @@
+<div class="posts list">
+    <h2>All posts</h2>
+    <% if (posts.length> 0) { %>
+        <% posts.forEach(post=> { %>
+            <a class="singlepost" href="/singlepost/<%= post.id %>">
+                <h3 class="title">
+                    <%= post.title %>
+                </h3>
+                <p class="body">
+                    <%= post.body %>
+                </p>
+            </a>
+            <% }) %>
+                <% } else { %>
+                    <p>You did not post anything...</p>
+                    <% } %>
+</div>

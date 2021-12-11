@@ -1,6 +1,60 @@
-<nav>
-    <a href="/">Home </a> |
-    <a href="/posts">Posts page</a> |
-    <a href="/contactus">Contact us</a> | 
-    <a href="/addnewpost">add a new post</a>
-</nav>
+<div id="nav">
+    <span class="navbar-text">
+        <p>Welcome</p>
+    </span>
+    <span class="nav-container">
+        <a href="/">Home </a>
+        <a href="/posts">Posts page</a>
+        <a href="/contactus">Contact us</a>
+        <a href="/addnewpost">add a new post</a>
+    </span>
+    <span class="navbar-text">
+        <p>user name</p>
+        <p>0.69$</p>
+    </span>
+</div>
+
+<style scoped>
+    #nav {
+        z-index: 1000;
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 30px;
+        background-color: #141414;
+    }
+
+    #nav a {
+        font-weight: bold;
+        color: #517394; 
+    }
+
+    #nav a:hover {
+        color: #b47414;
+    }
+
+    .nav-container {
+        display: flex;
+        place-content: space-between;
+        align-items: center;
+        padding: 0;
+        width: 20%;
+        min-width: 300px;
+    }
+
+    .navbar-text p {
+        margin: 0;
+        text-align: end;
+        color: dimgray;
+    }
+
+    .navbar-text {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        text-align: start;
+    }
+</style>
