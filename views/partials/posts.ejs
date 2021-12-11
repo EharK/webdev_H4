@@ -1,7 +1,7 @@
 <div id="posts">
     <h2>All posts</h2>
-    <ul>    
-        <% if (posts.length> 0) { %>
+    <ul>
+        <% if (posts.length > 0) { %>
             <% posts.forEach(post=> { %>
                 <li>
                     <a class="singlepost" href="/singlepost/<%= post.id %>">
@@ -14,16 +14,29 @@
                             <%= post.body %>
                         </p>
                         <span class="post-footer">
-                            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F4.bp.blogspot.com%2F-Eu8UrGUJk30%2FVtz12biVykI%2FAAAAAAAALpw%2FF6fLIVaKwe0%2Fs1600%2Flike.png&f=1&nofb=1" onclick="likepost()"
-                                height="40px">
-                            <!-- <%= post.likes %> -->
-                            <p class="likes">likes: </p>
+                            <p class="likes">likes: <%= post.likes %></p>
                         </span>
                     </a>
-                    <% }) %>
-        <% } else { %>s
+                    <% if (post.likes < 1) { %>
+                        <button class="like" data-like="<%= post.id %>" height="40px">LIKE</button>
+                    <% } else { %>
+                        <button disabled>LIKE</button>
+                    <% } %>
+                </li>
+            <% }) %>
+        <% } else { %>
             <p>You did not post anything...</p>
         <% } %>
-                </li>
     </ul>
 </div>
+
+
+<script>
+    const likereq = document.querySelector('button.like');
+    likereq.addEventListener('click', (e) => {
+        const endpoint = `/posts/${likereq.dataset.like}`;
+        fetch(endpoint, {
+            method: 'PUT',
+        }).then(window.location.href = '/posts')
+    });
+</script>

@@ -23,6 +23,16 @@
         background-color: #141414;
     }
 
+    .delete {
+        color: red;
+        cursor: pointer;
+    }
+
+
+
+
+
+    /* POSTS >>> */
     #posts {
         display: flex;
         flex-direction: column;
@@ -54,18 +64,22 @@
         border-radius: 0 0 20px 20px;
     }
 
-    .title {
+    .singlepost .title {
         padding-left: 20px;
     }
 
-    a {
+    .singlepost p {
+        color: black;
+    }
+
+    .singlepost h3 {
         color: black;
     }
 
     ul {
         list-style: none;
         width: 30%;
-        padding: 0;
+        padding: 0 0 200px 0;
     }
 
     li {
@@ -73,7 +87,14 @@
         margin: 20px 0 20px 0;
         border-radius: 20px;
     }
+    /* <<< POSTS */
 
+
+
+
+
+
+    /* NAVBAR >>> */
     #nav {
         z-index: 1000;
         position: sticky;
@@ -88,7 +109,7 @@
 
     #nav a {
         font-weight: bold;
-        color: #517394; 
+        color: #517394;
     }
 
     #nav a:hover {
@@ -116,8 +137,15 @@
         align-self: center;
         text-align: start;
     }
+    /* NAVBAR >>> */
 
+
+
+
+
+    /* FOOTER >>> */
     #footer-container {
+        position: fixed;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -129,4 +157,14 @@
         padding: 20px 40px 80px 40px;
         text-align: start;
     }
+
+    #footer-container a {
+        font-weight: bold;
+        color: #517394;
+    }
+    /* FOOTER >>> */
+
+
+
+    
 </style>

@@ -9,28 +9,47 @@
 
 <body>
     <%- include('./styles.ejs'); %>
-    <%- include('./partials/nav.ejs') %>
-        <div class="singlepost">
-            <h2>
-                <%= posts.title %>
-            </h2>
-            <div class="content">
-                <p>
-                    <%= posts.body %>
-                </p>
+        <%- include('./partials/nav.ejs') %>
+            <div id="posts">
+                <ul>
+                    <li>
+                        <div class="singlepost">
+                            <span class="post-header">
+                                <h3>
+                                    <%= posts.title %>
+                                </h3>
+                            </span>
+                            <p class="post-body">
+                                <%= posts.body %>
+                            </p>
+                            <span class="post-footer">
+                                <p class="likes">likes: <%= posts.likes%></p>
+                            </span>
+                            <a class="delete" data-del="<%= posts.id %>">Delete</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <a class="delete" data-del="<%= posts.id %>">Delete</a>
-        </div>
-        <script>
-            const delreq = document.querySelector('a.delete');
-            delreq.addEventListener('click', (e) => {
-                const endpoint = `/posts/${delreq.dataset.del}`;
-                fetch(endpoint, {
-                    method: 'DELETE',
-                }).then(window.location.href = '/posts')
-            });
-        </script>
-        <%- include('./partials/footer.ejs') %>
+            <script>
+                const delreq = document.querySelector('a.delete');
+                delreq.addEventListener('click', (e) => {
+                    const endpoint = `/posts/${delreq.dataset.del}`;
+                    fetch(endpoint, {
+                        method: 'DELETE',
+                    }).then(window.location.href = '/posts')
+                });
+            </script>
+            <%- include('./partials/footer.ejs') %>
 </body>
 
 </html>
+
+<script>
+    const likereq = document.querySelector('button.like');
+    likereq.addEventListener('click', (e) => {
+        const endpoint = `/posts/${likereq.dataset.like}`;
+        fetch(endpoint, {
+            method: 'PUT',
+        }).then(window.location.href = '/posts')
+    });
+</script>

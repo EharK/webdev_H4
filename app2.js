@@ -55,20 +55,18 @@ app.get('/singlepost/:id', async (req, res) => {
     }
 });
 
-
 app.get('/posts/:id', async (req, res) => {
     try {
         const { id } = req.params;
         console.log("get a post request has arrived");
         const Apost = await pool.query(
-            "SELECT * FROM posts WHERE id = $1", [id]
+            "SELECT * FROM posts WHERE id = $1 ORDER BY id ASC", [id]
         );
         res.json(Apost.rows[0]);
     } catch (err) {
         console.error(err.message);
     }
 });
-
 
 app.delete('/posts/:id', async (req, res) => {
     try {
@@ -85,6 +83,21 @@ app.delete('/posts/:id', async (req, res) => {
     }
 });
 
+app.put('/posts/:id', async (req, res) => {
+    try {
+        console.log(req.params);
+        const { id } = req.params;
+        const post = req.body;
+        console.log("like a post request has arrived");
+        const likedpost = await pool.query(
+            "UPDATE posts SET likes=likes+1 WHERE id = $1",
+            [id]
+        );
+        res.redirect('posts');
+    } catch (err) {
+        console.error(err.message)
+    }
+});
 
 app.post('/posts', async (req, res) => {
     try {
@@ -100,11 +113,9 @@ app.post('/posts', async (req, res) => {
     }
 });
 
-
 app.get('/addnewpost', (req, res) => {
     res.render('addnewpost');
 });
-
 
 app.use((req, res) => {
     res.status(404).render('404');
